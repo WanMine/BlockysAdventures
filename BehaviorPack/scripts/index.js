@@ -1689,7 +1689,7 @@ const blockIndex = [
   ""
 ];
 function initGrids() {
-  world.afterEvents.entitySpawn.subscribe((data) => {
+  world.afterEvents.entityLoad.subscribe((data) => {
     const entity = data.entity;
     if (entity.typeId != "wan:grid" && entity.typeId != "wan:theme_selector") {
       return;
