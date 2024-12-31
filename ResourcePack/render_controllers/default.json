@@ -1,0 +1,62 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.emissive.default": {
+      "geometry": "geometry.default",
+      "part_visibility": [
+        {
+          "*outline*": false
+        },
+        {
+          "display*": false
+        }
+      ],
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [
+        "texture.default"
+      ]
+    },
+    "controller.render.emissive.outline": {
+      "geometry": "geometry.default",
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "*outline*": true
+        }
+      ],
+      "materials": [
+        {
+          "*": "material.outline"
+        }
+      ],
+      "textures": [
+        "texture.default"
+      ]
+    },
+    "controller.render.arcade.screen": {
+      "geometry": "geometry.default",
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "display*": true
+        }
+      ],
+      "materials": [
+        {
+          "*": "material.display"
+        }
+      ],
+      "textures": [
+        "texture.default"
+      ]
+    }
+  }
+}

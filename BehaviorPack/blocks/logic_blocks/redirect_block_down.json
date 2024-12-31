@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:block": {
+    "description": {
+      "identifier": "wan:redirect_block_down",
+      "menu_category": {
+        "category": "construction",
+        "is_hidden_in_commands": false
+      }
+    },
+    "components": {
+      "minecraft:friction": 0,
+      "minecraft:geometry": "geometry.redirect_block_down",
+	"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 0.01
+			},
+      "minecraft:light_emission": 15,
+      "minecraft:destructible_by_explosion": false,
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "redirect_block_down",
+          "render_method": "alpha_test",
+          "face_dimming": false,
+          "ambient_occlusion": false
+        }
+      }
+    }
+  }
+}

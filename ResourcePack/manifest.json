@@ -1,0 +1,26 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": ["WanMine"]
+	},
+	"header": {
+		"name": "Blocky's Puzzle Adventures",
+		"description": "Blocky's Puzzle Adventures is a cool miningame by WanMine.",
+		"min_engine_version": [1, 20, 0],
+		"uuid": "62334f76-46bd-44d6-84ea-2b97033f51d3",
+		"version": [1, 0, 0]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "de0ac13b-bb8d-43d7-9be6-5a398a3b5ddd",
+			"version": [1, 0, 0]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "1093b6b0-8d15-4241-b292-6e34008da6ae",
+			"version": [1, 0, 0]
+		}
+	]
+}

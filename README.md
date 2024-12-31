@@ -1,0 +1,1 @@
+Blocky's Puzzle Adventures is a cool miningame by WanMine.

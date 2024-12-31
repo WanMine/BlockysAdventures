@@ -1,0 +1,175 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.grid.pages": {
+      "initial_state": "detector",
+      "states": {
+        "detector": {
+          "transitions": [
+            {
+              "page0": "q.property('wan:page') == 0"
+            },
+            {
+              "page1": "q.property('wan:page') == 1"
+            },
+            {
+              "page2": "q.property('wan:page') == 2"
+            },
+            {
+              "page3": "q.property('wan:page') == 3"
+            }
+          ]
+        },
+        "page0": {
+          "animations": [
+            "page_1"
+          ],
+          "transitions": [
+            {
+              "next": "q.property('wan:page') == 1"
+            }
+          ]
+        },
+        "page1": {
+          "animations": [
+            "page_2"
+          ],
+          "transitions": [
+            {
+              "previous": "q.property('wan:page') == 0"
+            },
+            {
+              "next": "q.property('wan:page') == 2"
+            }
+          ]
+        },
+        "page2": {
+          "animations": [
+            "page_3"
+          ],
+          "transitions": [
+            {
+              "previous": "q.property('wan:page') == 1"
+            },
+            {
+              "next": "q.property('wan:page') == 3"
+            }
+          ]
+        },
+        "page3": {
+          "animations": [
+            "page_4"
+          ],
+          "transitions": [
+            {
+              "previous": "q.property('wan:page') == 2"
+            }
+          ]
+        },
+        "next": {
+          "animations": [
+            {
+              "0to1": "q.property('wan:page') == 1"
+            },
+            {
+              "1to2": "q.property('wan:page') == 2"
+            },
+            {
+              "2to3": "q.property('wan:page') == 3"
+            }
+          ],
+          "transitions": [
+            {
+              "page1": "q.property('wan:page') == 1 && q.any_animation_finished"
+            },
+            {
+              "page2": "q.property('wan:page') == 2 && q.any_animation_finished"
+            },
+            {
+              "page3": "q.property('wan:page') == 3 && q.any_animation_finished"
+            }
+          ]
+        },
+        "previous": {
+          "animations": [
+            {
+              "1to0": "q.property('wan:page') == 0"
+            },
+            {
+              "2to1": "q.property('wan:page') == 1"
+            },
+            {
+              "3to2": "q.property('wan:page') == 2"
+            }
+          ],
+          "transitions": [
+            {
+              "page0": "q.property('wan:page') == 0 && q.any_animation_finished"
+            },
+            {
+              "page1": "q.property('wan:page') == 1 && q.any_animation_finished"
+            },
+            {
+              "page2": "q.property('wan:page') == 2 && q.any_animation_finished"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.theme_selector.pages": {
+      "initial_state": "detector",
+      "states": {
+        "detector": {
+          "transitions": [
+            {
+              "page0": "q.property('wan:page') == 0"
+            },
+            {
+              "page1": "q.property('wan:page') == 1"
+            }
+          ]
+        },
+        "page0": {
+          "animations": [
+            "page_1"
+          ],
+          "transitions": [
+            {
+              "next": "q.property('wan:page') == 1"
+            }
+          ]
+        },
+        "next": {
+          "animations": [
+            "next"
+          ],
+          "transitions": [
+            {
+              "page1": "q.all_animations_finished"
+            }
+          ]
+        },
+        "previous": {
+          "animations": [
+            "previous"
+          ],
+          "transitions": [
+            {
+              "page0": "q.all_animations_finished"
+            }
+          ]
+        },
+        "page1": {
+          "animations": [
+            "page_2"
+          ],
+          "transitions": [
+            {
+              "previous": "q.property('wan:page') == 0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

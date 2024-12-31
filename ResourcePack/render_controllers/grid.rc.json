@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.grid": {
+      "geometry": "geometry.default",
+      "part_visibility": [
+        {
+          "left_arrow": "q.property('wan:page') > 0"
+        },
+        {
+          "right_arrow": "q.property('wan:page') < 3"
+        }
+      ],
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [
+        "texture.default"
+      ],
+      "is_hurt_color": {
+        "a": 0
+      },
+      "ignore_lighting": true,
+      "light_color_multiplier": 1.5
+    },
+    "controller.render.theme_selector": {
+      "geometry": "geometry.default",
+      "part_visibility": [
+        {
+          "left_arrow": "q.property('wan:page') > 0"
+        },
+        {
+          "right_arrow": "q.property('wan:page') < 1"
+        }
+      ],
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [
+        "texture.default"
+      ],
+      "is_hurt_color": {
+        "a": 0
+      },
+      "ignore_lighting": true,
+      "light_color_multiplier": 1.5
+    }
+  }
+}

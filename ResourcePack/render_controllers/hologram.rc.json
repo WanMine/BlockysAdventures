@@ -1,0 +1,24 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.hologram": {
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        },
+        {
+          "logo": "material.emissive"
+        }
+      ],
+      "textures": [
+        "texture.default"
+      ],
+      "is_hurt_color": {
+        "a": 0
+      },
+      "ignore_lighting": true,
+      "light_color_multiplier": 1.5
+    }
+  }
+}

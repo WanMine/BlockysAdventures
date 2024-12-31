@@ -1,0 +1,29 @@
+{
+  "format_version": "1.18.10",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wan:falling_glass",
+      "materials": {
+        "default": "entity_emissive_alpha",
+        "outline": "entity_emissive_alpha_one_sided"
+      },
+      "textures": {
+        "default": "textures/entity/falling_glass"
+      },
+      "geometry": {
+        "default": "geometry.falling_glass"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "fall": "animation.falling_glass.fall_down"
+      },
+      "scripts": {
+        "animate": [
+          "fall"
+        ]
+      }
+    }
+  }
+}

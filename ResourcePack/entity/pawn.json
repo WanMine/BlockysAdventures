@@ -1,0 +1,51 @@
+{
+  "format_version": "1.18.10",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wan:pawn",
+      "materials": {
+        "default": "entity_emissive_alpha",
+        "outline": "entity_emissive_alpha_one_sided"
+      },
+      "textures": {
+        "default": "textures/entity/pawn"
+      },
+      "geometry": {
+        "default": "geometry.pawn"
+      },
+      "particle_effects": {
+        "running": "wan:running"
+      },
+      "animations": {
+        "idle": "animation.pawn.idle",
+        "jump": "animation.pawn.jump",
+        "start_sleep": "animation.pawn.start_sleep",
+        "sleep": "animation.pawn.sleep",
+        "end_sleep": "animation.pawn.end_sleep",
+        "key": "animation.pawn.key",
+        "run": "animation.pawn.run",
+        "victory": "animation.pawn.victory",
+        "impact": "animation.pawn.impact",
+        "fall_down": "animation.pawn.fall_down",
+        "spawn": "animation.pawn.spawn",
+        "hide_all": "animation.pawn.hide_all",
+        "show_bubble": "animation.pawn.show_bubble",
+        "show_spawn": "animation.pawn.show_spawn",
+        "show_exclamation": "animation.pawn.show_exclamation",
+        "show_impact": "animation.pawn.show_impact",
+        "show_stars": "animation.pawn.show_stars",
+        "ctrl": "controller.animation.pawn"
+      },
+      "scripts": {
+        "animate": [
+          "key",
+          "ctrl"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.emissive.default",
+        "controller.render.emissive.outline"
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "format_version": "1.18.10",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wan:ufo",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/ufo"
+      },
+      "geometry": {
+        "default": "geometry.ufo"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "animations": {
+        "beam": "animation.ufo.beam"
+      },
+      "scripts": {
+        "animate": [
+          "beam"
+        ]
+      }
+    }
+  }
+}

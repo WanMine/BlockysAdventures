@@ -1,0 +1,29 @@
+{
+	"format_version": "1.20.20",
+	"minecraft:block": {
+		"description": {
+			"identifier": "wan:glass_block_u",
+			"menu_category": {
+				"category": "construction"
+			}
+		},
+		"components": {
+			"minecraft:collision_box": true,
+			"minecraft:selection_box": true,
+			"minecraft:destructible_by_mining": false,
+			"minecraft:destructible_by_explosion": false,
+			"minecraft:friction": 0,
+			"minecraft:geometry": "geometry.glass_block_u",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "glass_block_u",
+					"render_method": "alpha_test",
+					"face_dimming": false,
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:light_emission": 15,
+			"minecraft:map_color": "#ffffff"
+		}
+	}
+}

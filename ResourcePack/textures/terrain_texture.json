@@ -1,0 +1,167 @@
+{
+	"resource_pack_name": "wan",
+	"texture_name": "atlas.terrain",
+	"padding": 8,
+	"num_mip_levels": 4,
+	"texture_data": {
+		"wan_barrier": {
+			"textures": "textures/blocks/wan_barrier.png"
+		},
+		"wall_block_2": {
+			"textures": "textures/blocks/wall_block_2.png"
+		},
+		"wall_block_1": {
+			"textures": "textures/blocks/wall_block_1.png"
+		},
+		"tmp_template_logic_blocks": {
+			"textures": "textures/blocks/tmp_template_logic_blocks.png"
+		},
+		"d_eye": {
+			"textures": "textures/blocks/d_eye.png"
+		},
+		"d_fence_angular": {
+			"textures": "textures/blocks/d_fence_angular.png"
+		},
+		"d_akri": {
+			"textures": "textures/blocks/d_akri.png"
+		},
+		"d_chest": {
+			"textures": "textures/blocks/d_chest.png"
+		},
+		"d_floor_tiles_lobby": {
+			"textures": "textures/blocks/d_floor_tiles_lobby.png"
+		},
+		"d_floor_tiles_editor": {
+			"textures": "textures/blocks/d_floor_tiles_editor.png"
+		},
+		"d_fence_mid": {
+			"textures": "textures/blocks/d_fence_mid.png"
+		},
+		"d_fence_end": {
+			"textures": "textures/blocks/d_fence_end.png"
+		},
+		"d_floor_void": {
+			"textures": "textures/blocks/d_floor_void.png"
+		},
+		"d_orange": {
+			"textures": "textures/blocks/d_orange.png"
+		},
+		"d_yellow": {
+			"textures": "textures/blocks/d_yellow.png"
+		},
+		"d_grate": {
+			"textures": "textures/blocks/d_grate.png"
+		},
+		"d_floor_slab": {
+			"textures": "textures/blocks/d_floor_slab.png"
+		},
+		"d_plate_mid": {
+			"textures": "textures/blocks/d_plate_mid.png"
+		},
+		"d_plate_end": {
+			"textures": "textures/blocks/d_plate_end.png"
+		},
+		"d_floor_polished": {
+			"textures": "textures/blocks/d_floor_polished.png"
+		},
+		"1_wall_b": {
+			"textures": "textures/blocks/1_wall_b.png"
+		},
+		"1_wall_a": {
+			"textures": "textures/blocks/1_wall_a.png"
+		},
+		"1_ground_b": {
+			"textures": "textures/blocks/1_ground_b.png"
+		},
+		"1_ground_a": {
+			"textures": "textures/blocks/1_ground_a.png"
+		},
+		"1_bottom": {
+			"textures": "textures/blocks/1_bottom.png"
+		},
+		"0_wall_b": {
+			"textures": "textures/blocks/0_wall_b.png"
+		},
+		"0_wall_a": {
+			"textures": "textures/blocks/0_wall_a.png"
+		},
+		"0_ground_b": {
+			"textures": "textures/blocks/0_ground_b.png"
+		},
+		"0_ground_a": {
+			"textures": "textures/blocks/0_ground_a.png"
+		},
+		"0_bottom": {
+			"textures": "textures/blocks/0_bottom.png"
+		},
+		"tnt_u": {
+			"textures": "textures/blocks/tnt_u.png"
+		},
+		"tnt_u_ng": {
+			"textures": "textures/blocks/tnt_u_ng.png"
+		},
+		"glass_block_u": {
+			"textures": "textures/blocks/glass_block_u.png"
+		},
+		"redirect_u": {
+			"textures": "textures/blocks/redirect_u.png"
+		},
+		"redirect_base_u": {
+			"textures": "textures/blocks/redirect_base_u.png"
+		},
+		"stop_block_u": {
+			"textures": "textures/blocks/stop_block_u.png"
+		},
+		"stop_block_base_u": {
+			"textures": "textures/blocks/stop_block_base_u.png"
+		},
+		"win_block_u": {
+			"textures": "textures/blocks/win_block_u.png"
+		},
+		"win_block_base_u": {
+			"textures": "textures/blocks/win_block_base_u.png"
+		},
+		"spawn_block_u": {
+			"textures": "textures/blocks/spawn_block_u.png"
+		},
+		"spawn_block_base_u": {
+			"textures": "textures/blocks/spawn_block_base_u.png"
+		},
+		"black_block_u": {
+			"textures": "textures/blocks/black_block_u.png"
+		},
+		"dynamite_block": {
+			"textures": "textures/blocks/dynamite_block"
+		},
+		"glass_block": {
+			"textures": "textures/blocks/glass_block"
+		},
+		"normal_block": {
+			"textures": "textures/blocks/normal_block"
+		},
+		"redirect_block_down": {
+			"textures": "textures/blocks/redirect_block_down"
+		},
+		"redirect_block_left": {
+			"textures": "textures/blocks/redirect_block_left"
+		},
+		"redirect_block_right": {
+			"textures": "textures/blocks/redirect_block_right"
+		},
+		"redirect_block_up": {
+			"textures": "textures/blocks/redirect_block_up"
+		},
+		"spawn_block": {
+			"textures": "textures/blocks/spawn_block"
+		},
+		"stop_block": {
+			"textures": "textures/blocks/stop_block"
+		},
+		"wall_block": {
+			"textures": "textures/blocks/wall_block"
+		},
+		"win_block": {
+			"textures": "textures/blocks/win_block"
+		}
+	}
+}

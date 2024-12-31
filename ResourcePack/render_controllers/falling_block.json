@@ -1,0 +1,69 @@
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.falling_block_main": {
+      "part_visibility": [
+        {
+          "Wall*": false
+        }
+      ],
+      "arrays": {
+        "textures": {
+          "Array.main": [
+            "Texture.theme1_normal1",
+            "Texture.theme1_normal2",
+            "Texture.theme2_normal1",
+            "Texture.theme2_normal2",
+            "Texture.glass_block",
+            "Texture.redirect_up",
+            "Texture.redirect_down",
+            "Texture.redirect_left",
+            "Texture.redirect_right",
+            "Texture.spawn_block",
+            "Texture.win_block",
+            "Texture.stop_block"
+          ]
+        }
+      },
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [
+        "Array.main[q.property('wan:pillar_block')]"
+      ],
+      "ignore_lighting": true
+    },
+    "controller.render.falling_block_wall": {
+      "part_visibility": [
+        {
+          "*": false
+        },
+        {
+          "Wall*": true
+        }
+      ],
+      "arrays": {
+        "textures": {
+          "Array.walls": [
+            "Texture.theme1_wall1",
+            "Texture.theme1_wall2",
+            "Texture.theme2_wall1",
+            "Texture.theme2_wall2"
+          ]
+        }
+      },
+      "geometry": "geometry.default",
+      "materials": [
+        {
+          "*": "material.default"
+        }
+      ],
+      "textures": [
+        "Array.walls[q.property('wan:wall_block')]"
+      ]
+    }
+  }
+}

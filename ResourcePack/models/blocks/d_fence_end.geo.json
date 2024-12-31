@@ -1,0 +1,133 @@
+{
+  "format_version": "1.19.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.d_fence_end",
+        "texture_width": 64,
+        "texture_height": 64,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2.5,
+        "visible_bounds_offset": [
+          0,
+          0.75,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "block",
+          "pivot": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "bb_main",
+          "pivot": [
+            0,
+            0.2,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1.5,
+                0.2,
+                -3
+              ],
+              "size": [
+                3,
+                11.9,
+                3
+              ],
+              "pivot": [
+                0,
+                0.2,
+                -1.5
+              ],
+              "rotation": [
+                0,
+                45,
+                0
+              ],
+              "uv": [
+                0,
+                9
+              ]
+            },
+            {
+              "origin": [
+                -0.5,
+                0.2,
+                0
+              ],
+              "size": [
+                1,
+                12,
+                8
+              ],
+              "uv": [
+                48,
+                12
+              ]
+            },
+            {
+              "origin": [
+                -1.70711,
+                11.90711,
+                -0.1
+              ],
+              "size": [
+                3,
+                3,
+                8.1
+              ],
+              "pivot": [
+                0,
+                13.2,
+                4
+              ],
+              "rotation": [
+                0,
+                0,
+                45
+              ],
+              "uv": [
+                0,
+                0
+              ]
+            },
+            {
+              "origin": [
+                -1.5,
+                9.85,
+                -1.85
+              ],
+              "size": [
+                3,
+                5,
+                3
+              ],
+              "pivot": [
+                0,
+                12.35,
+                -0.35
+              ],
+              "rotation": [
+                -54.73561,
+                -30,
+                35.26439
+              ],
+              "uv": [
+                1,
+                4
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

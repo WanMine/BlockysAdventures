@@ -1,0 +1,46 @@
+{
+  "format_version": "1.18.10",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wan:dead_falling_block",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "theme1_normal1": "textures/entity/theme1/normal_block_1",
+        "theme1_normal2": "textures/entity/theme1/normal_block_2",
+        "theme1_wall1": "textures/entity/theme1/wall_1",
+        "theme1_wall2": "textures/entity/theme1/wall_2",
+        "theme2_normal1": "textures/entity/theme2/normal_block_1",
+        "theme2_normal2": "textures/entity/theme2/normal_block_2",
+        "theme2_wall1": "textures/entity/theme2/wall_1",
+        "theme2_wall2": "textures/entity/theme2/wall_2",
+        "glass_block": "textures/entity/logic/glass_block",
+        "redirect_up": "textures/entity/logic/redirect_up",
+        "redirect_down": "textures/entity/logic/redirect_down",
+        "redirect_left": "textures/entity/logic/redirect_left",
+        "redirect_right": "textures/entity/logic/redirect_right",
+        "spawn_block": "textures/entity/logic/spawn_block",
+        "win_block": "textures/entity/logic/win_block",
+        "stop_block": "textures/entity/logic/stop_block"
+      },
+      "geometry": {
+        "default": "geometry.falling_block"
+      },
+      "render_controllers": [
+        "controller.render.falling_block_main",
+        {
+          "controller.render.falling_block_wall": "q.property('wan:wall_block') < 4"
+        }
+      ],
+      "animations": {
+        "fall": "animation.falling_block.fall"
+      },
+      "scripts": {
+        "animate": [
+          "fall"
+        ]
+      }
+    }
+  }
+}

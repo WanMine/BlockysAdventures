@@ -1,0 +1,20 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wan:grid_arrow",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/Blank"
+      },
+      "geometry": {
+        "default": "geometry.dummy"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ]
+    }
+  }
+}

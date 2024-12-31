@@ -1,0 +1,68 @@
+tile.wan:dynamite_block.name=Dynamite Block
+tile.wan:glass_block.name=Glass Block
+tile.wan:normal_block.name=Normal Block
+tile.wan:redirect_block_down.name=Redirect Down Block
+tile.wan:redirect_block_left.name=Redirect Left Block
+tile.wan:redirect_block_right.name=Redirect Right Block
+tile.wan:redirect_block_up.name=Redirect Up Block
+tile.wan:spawn_block.name=Spawn Block
+tile.wan:stop_block.name=Stop Block
+tile.wan:wall_block.name=Wall Block
+tile.wan:win_block.name=Win Block
+
+item.wan:move_up.name=Move Up
+item.wan:move_down.name=Move Down
+item.wan:move_left.name=Move Left
+item.wan:move_right.name=Move Right
+item.wan:restart.name=Restart
+item.wan:stop.name=Stop
+
+entity.wan:pawn.name=Blocky
+entity.wan:start_game_9.name=Start Game 9
+entity.wan:start_game_21.name=Start Game 21
+
+tile.wan:black_block_u.name=Black Block U
+tile.wan:spawn_block_base_u.name=Spawn Block Base U
+tile.wan:spawn_block_u.name=Spawn Block U
+tile.wan:win_block_base_u.name=Win Block Base U
+tile.wan:win_block_u.name=Win Block U
+tile.wan:stop_block_base_u.name=Stop Block Base U
+tile.wan:stop_block_u.name=Stop Block U
+tile.wan:redirect_base_u.name=Redirect Base U
+tile.wan:redirect_u.name=Redirect U
+tile.wan:glass_block_u.name=Glass Block U
+tile.wan:tnt_u.name=TNT U
+
+tile.wan:0_bottom.name=0 Bottom
+tile.wan:0_ground_a.name=0 Ground A
+tile.wan:0_ground_b.name=0 Ground B
+tile.wan:0_wall_a.name=0 Wall A
+tile.wan:0_wall_b.name=0 Wall B
+
+tile.wan:1_bottom.name=1 Bottom
+tile.wan:1_ground_a.name=1 Ground A
+tile.wan:1_ground_b.name=1 Ground B
+tile.wan:1_wall_a.name=1 Wall A
+tile.wan:1_wall_b.name=1 Wall B
+
+tile.wan:d_floor_polished.name=D Floor Polished
+tile.wan:d_plate_end.name=D Plate End
+tile.wan:d_plate_mid.name=D Plate Mid
+tile.wan:d_floor_slab.name=D Floor Slab
+tile.wan:d_grate.name=D Grate
+tile.wan:d_yellow.name=D Yellow
+tile.wan:d_orange.name=D Orange
+tile.wan:d_floor_void.name=D Floor Void
+tile.wan:d_fence_end.name=D Fence End
+tile.wan:d_fence_mid.name=D Fence Mid
+tile.wan:d_floor_tiles_editor.name=D Floor Tiles Editor
+tile.wan:d_floor_tiles_lobby.name=D Floor Tiles Lobby
+tile.wan:d_chest.name=D Chest
+tile.wan:d_akri.name=D Akri
+tile.wan:d_fence_angular.name=D Fence Angular
+tile.wan:d_eye.name=D Eye
+tile.wan:tmp_template_logic_blocks.name=TMP Template Logic Blocks
+
+tile.wan:wall_block_1.name=Wall Block 1
+tile.wan:wall_block_2.name=Wall Block 2
+tile.wan:wan_barrier.name=Wan Barrier

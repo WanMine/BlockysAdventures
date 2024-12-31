@@ -1,0 +1,7 @@
+{
+  "$hud_hide_flag": "hide",
+  "$joystick_flag": "joystick",
+  "$reset_button_flag": "reset",
+  "$home_button_flag": "home"
+}
+

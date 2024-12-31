@@ -1,0 +1,130 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.pawn": {
+      "states": {
+        "default": {
+          "animations": [
+            {
+              "jump": "q.property('wan:idle_type') == 0"
+            },
+            {
+              "idle": "q.property('wan:idle_type') == 1"
+            },
+            "hide_all"
+          ],
+          "transitions": [
+            {
+              "spawn": "q.property('wan:is_spawning')"
+            },
+            {
+              "fall_down": "q.property('wan:is_death')"
+            },
+            {
+              "victory": "q.property('wan:has_won')"
+            },
+            {
+              "run": "q.property('wan:is_running')"
+            },
+            {
+              "walled": "q.property('wan:is_walled')"
+            },
+            {
+              "start_sleep": "q.property('wan:idle_type') == 2 && q.property('wan:sleep_phase') == 0"
+            }
+          ]
+        },
+        "start_sleep": {
+          "animations": [
+            "start_sleep",
+            "hide_all"
+          ],
+          "transitions": [
+            {
+              "sleep": "q.property('wan:sleep_phase') == 1"
+            }
+          ]
+        },
+        "sleep": {
+          "animations": [
+            "sleep",
+            "show_bubble"
+          ],
+          "transitions": [
+            {
+              "end_sleep": "q.property('wan:sleep_phase') == 2"
+            }
+          ]
+        },
+        "end_sleep": {
+          "animations": [
+            "end_sleep",
+            "hide_all"
+          ],
+          "transitions": [
+            {
+              "default": "q.property('wan:idle_type') < 2"
+            }
+          ]
+        },
+        "spawn": {
+          "animations": [
+            "spawn",
+            "show_spawn"
+          ],
+          "transitions": [
+            {
+              "default": "!q.property('wan:is_spawning')"
+            }
+          ]
+        },
+        "fall_down": {
+          "animations": [
+            "fall_down",
+            "show_exclamation"
+          ]
+        },
+        "victory": {
+          "animations": [
+            "victory",
+            "show_stars"
+          ]
+        },
+        "walled": {
+          "animations": [
+            "impact",
+            "show_impact"
+          ],
+          "transitions": [
+            {
+              "default": "!q.property('wan:is_walled')"
+            },
+            {
+              "fall_down": "q.property('wan:is_death')"
+            },
+            {
+              "victory": "q.property('wan:has_won')"
+            }
+          ]
+        },
+        "run": {
+          "animations": [
+            "run",
+            "hide_all"
+          ],
+          "transitions": [
+            {
+              "default": "!q.property('wan:is_running')"
+            },
+            {
+              "fall_down": "q.property('wan:is_death')"
+            },
+            {
+              "victory": "q.property('wan:has_won')"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

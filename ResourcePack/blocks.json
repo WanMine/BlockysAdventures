@@ -1,0 +1,192 @@
+{
+	"wan_barrier": {
+		"sound": "stone"
+	},
+	"wall_block_2": {
+		"sound": "stone"
+	},
+	"wall_block_1": {
+		"sound": "stone"
+	},
+	"wan:tmp_template_logic_blocks": {
+		"sound": "stone"
+	},
+	"wan:d_eye": {
+		"sound": "stone"
+	},
+	"format_version": "1.21.20",
+	"wan:d_fence_angular": {
+		"sound": "stone"
+	},
+	"wan:d_akri": {
+		"sound": "stone"
+	},
+	"wan:d_chest": {
+		"sound": "stone"
+	},
+	"wan:d_floor_tiles_lobby": {
+		"sound": "stone"
+	},
+	"wan:d_floor_tiles_editor": {
+		"sound": "stone"
+	},
+	"wan:d_fence_mid": {
+		"sound": "stone"
+	},
+	"wan:d_fence_end": {
+		"sound": "stone"
+	},
+	"wan:d_floor_void": {
+		"sound": "stone"
+	},
+	"wan:d_orange": {
+		"sound": "stone"
+	},
+	"wan:d_yellow": {
+		"sound": "stone"
+	},
+	"wan:d_grate": {
+		"sound": "stone"
+	},
+	"wan:d_floor_slab": {
+		"sound": "stone"
+	},
+	"wan:d_plate_mid": {
+		"sound": "stone"
+	},
+	"wan:d_plate_end": {
+		"sound": "stone"
+	},
+	"wan:d_floor_polished": {
+		"textures": "d_floor_polished",
+		"sound": "stone"
+	},
+	"wan:dynamite_block": {
+		"textures": "dynamite_block",
+		"sound": "stone"
+	},
+	"wan:glass_block": {
+		"textures": "glass_block",
+		"sound": "stone"
+	},
+	"wan:normal_block": {
+		"textures": "normal_block",
+		"sound": "stone"
+	},
+	"wan:redirect_block_down": {
+		"textures": "redirect_block_down",
+		"sound": "stone"
+	},
+	"wan:redirect_block_left": {
+		"textures": "redirect_block_left",
+		"sound": "stone"
+	},
+	"wan:redirect_block_right": {
+		"textures": "redirect_block_right",
+		"sound": "stone"
+	},
+	"wan:redirect_block_up": {
+		"textures": "redirect_block_up",
+		"sound": "stone"
+	},
+	"wan:spawn_block": {
+		"textures": "spawn_block",
+		"sound": "stone"
+	},
+	"wan:stop_block": {
+		"textures": "stop_block",
+		"sound": "stone"
+	},
+	"wan:wall_block": {
+		"textures": "wall_block",
+		"sound": "stone"
+	},
+	"wan:win_block": {
+		"textures": "win_block",
+		"sound": "stone"
+	},
+	"wan:1_wall_b": {
+		"textures": "1_wall_b",
+		"sound": "stone"
+	},
+	"wan:1_wall_a": {
+		"textures": "1_wall_a",
+		"sound": "stone"
+	},
+	"wan:1_ground_b": {
+		"textures": "1_ground_b",
+		"sound": "stone"
+	},
+	"wan:1_ground_a": {
+		"textures": "1_ground_a",
+		"sound": "stone"
+	},
+	"wan:1_bottom": {
+		"textures": "1_bottom",
+		"sound": "stone"
+	},
+	"wan:0_wall_b": {
+		"textures": "0_wall_b",
+		"sound": "stone"
+	},
+	"wan:0_wall_a": {
+		"textures": "0_wall_a",
+		"sound": "stone"
+	},
+	"wan:0_ground_b": {
+		"textures": "0_ground_b",
+		"sound": "stone"
+	},
+	"wan:0_ground_a": {
+		"textures": "0_ground_a",
+		"sound": "stone"
+	},
+	"wan:0_bottom": {
+		"textures": "0_bottom",
+		"sound": "stone"
+	},
+	"wan:tnt_u": {
+		"textures": "tnt_u",
+		"sound": "stone"
+	},
+	"wan:glass_block_u": {
+		"textures": "glass_block_u",
+		"sound": "stone"
+	},
+	"wan:redirect_u": {
+		"textures": "redirect_u",
+		"sound": "stone"
+	},
+	"wan:redirect_base_u": {
+		"textures": "redirect_base_u",
+		"sound": "stone"
+	},
+	"wan:stop_block_u": {
+		"textures": "stop_block_u",
+		"sound": "stone"
+	},
+	"wan:stop_block_base_u": {
+		"textures": "stop_block_base_u",
+		"sound": "stone"
+	},
+	"wan:win_block_u": {
+		"textures": "win_block_u",
+		"sound": "stone"
+	},
+	"wan:win_block_base_u": {
+		"textures": "win_block_base_u",
+		"sound": "stone"
+	},
+	"wan:spawn_block_u": {
+		"textures": "spawn_block_u",
+		"sound": "stone"
+	},
+	"wan:spawn_block_base_u": {
+		"textures": "spawn_block_base_u",
+		"sound": "stone"
+	},
+	"wan:black_block_u": {
+		"textures": "black_block_u",
+		"sound": "stone"
+	}
+}
