@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-import { world, system, StructureSaveMode, EntityComponentTypes, Direction, BlockPermutation, ItemStack } from "@minecraft/server";
+import { world, system, StructureSaveMode, EntityComponentTypes, Direction, BlockPermutation, ItemStack, GameMode } from "@minecraft/server";
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 function randomInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -157,7 +157,7 @@ function initManager$1() {
       stopEditingLevel(data.player, data.player.getDynamicProperty("currentlyEditingId"));
     }
   });
-  world.afterEvents.entityLoad.subscribe((data) => {
+  world.afterEvents.entitySpawn.subscribe((data) => {
     if (data.entity.typeId == "wan:theme_selector") {
       themeGrid = data.entity;
     } else if (data.entity.typeId == "wan:grid") {
@@ -240,7 +240,7 @@ function loadLevels() {
   });
 }
 function changeTheme$1(player, levelId, newTheme) {
-  stopEditingLevel(player, levelId);
+  stopEditingLevel(player, levelId, true);
   system.runTimeout(() => {
     let level = levels.splice(levelId, 1)[0];
     placeLevelInstant(level.structureId, player.dimension, startLogicEditorPos);
@@ -251,7 +251,7 @@ function changeTheme$1(player, levelId, newTheme) {
       saveLevel(player, newLevel, player.dimension, () => {
         let id = levels.push(newLevel);
         startEditingLevel(player, id - 1);
-      });
+      }, void 0, true);
     }, 2);
   }, 2);
 }
@@ -376,7 +376,7 @@ function placeRotatingColumn(dimension, position, rotation, typeIdL1, typeIdL2, 
     );
   }
 }
-function stopEditingLevel(player, levelId) {
+function stopEditingLevel(player, levelId, bypassCheck = false) {
   if (editorTimerId != -1) {
     system.clearRun(editorTimerId);
   }
@@ -391,7 +391,7 @@ function stopEditingLevel(player, levelId) {
       return;
     }
     inventory.container.clearAll();
-  });
+  }, void 0, bypassCheck);
 }
 function canPlayLevel(player) {
   let spawnBlockCount = 0;
@@ -437,11 +437,24 @@ function playLevel(player, levelId) {
 function placeLevelInstant(levelId, dimension, pos) {
   world.structureManager.place(levelId, dimension, pos);
 }
-function tpPlayerToEditor(player, arcadePos) {
+function tpPlayerToEditor(player, arcadePos, levelId) {
   startArcadeCamera(player, arcadePos, () => {
     player.dimension.runCommand(`camera "${player.name}" set minecraft:first_person`);
     player.dimension.runCommand(`effect "${player.name}" clear`);
     player.teleport({ x: 0.5, y: 31, z: 2018.5 }, { keepVelocity: false, rotation: { x: 0, y: 180 } });
+    let gridPos = { x: -22.5, y: 31, z: 2005.5 };
+    let themePos = { x: 23.5, y: 31, z: 2005.5 };
+    player.dimension.runCommand(`kill @e[x=${gridPos.x},y=${gridPos.y},z=${gridPos.z},r=5]`);
+    player.dimension.runCommand(`kill @e[x=${themePos.x},y=${themePos.y},z=${themePos.z},r=5]`);
+    system.runTimeout(() => {
+      player.dimension.runCommand(`summon wan:grid ${gridPos.x} ${gridPos.y} ${gridPos.z} 0 0`);
+    }, 2);
+    system.runTimeout(() => {
+      player.dimension.runCommand(`summon wan:theme_selector ${themePos.x} ${themePos.y} ${themePos.z} 0 0`);
+    }, 3);
+    system.runTimeout(() => {
+      startEditingLevel(player, levelId);
+    }, 4);
   });
 }
 function tpPlayerToLobby(player, arcadePos) {
@@ -660,8 +673,7 @@ function openLevelCreatorMenu(player, arcadePos) {
     let levelTheme = themeList[levelThemeId];
     let levelId = `wan:${levelName.toLowerCase().replaceAll(" ", "_")}_${levelTheme.toString().toLowerCase()}`;
     let id = levels.push(new Level(levelName, levelTheme, levelId));
-    tpPlayerToEditor(player, arcadePos);
-    startEditingLevel(player, id - 1);
+    tpPlayerToEditor(player, arcadePos, id - 1);
   }).catch((e) => {
     console.error(e, e.stack);
   });
@@ -682,8 +694,7 @@ function openLevelMenu(player, id, arcadePos, playLevelCallback) {
       case 1:
         if (isAnotherPlayerEditing()) ;
         else {
-          tpPlayerToEditor(player, arcadePos);
-          startEditingLevel(player, id);
+          tpPlayerToEditor(player, arcadePos, id);
         }
         break;
       case 2:
@@ -1689,13 +1700,13 @@ const blockIndex = [
   ""
 ];
 function initGrids() {
-  world.afterEvents.entityLoad.subscribe((data) => {
-    const entity = data.entity;
+  world.afterEvents.entitySpawn.subscribe((data) => {
+    let entity = data.entity;
     if (entity.typeId != "wan:grid" && entity.typeId != "wan:theme_selector") {
       return;
     }
-    const location = entity.location;
-    const n = entity.getComponent(EntityComponentTypes.Rideable).getSeats().length;
+    let location = entity.location;
+    let n = entity.getComponent(EntityComponentTypes.Rideable).getSeats().length;
     for (let i = 0; i < n; i++) {
       let rider = void 0;
       if (i > 1) {
@@ -1713,8 +1724,8 @@ function initGrids() {
     }
   });
   world.afterEvents.entityHitEntity.subscribe((data) => {
-    const rider = data.hitEntity;
-    const player = data.damagingEntity;
+    let rider = data.hitEntity;
+    let player = data.damagingEntity;
     if (!rider.matches({ families: ["grid"] }) || player.typeId != "minecraft:player") {
       return;
     }
@@ -1722,10 +1733,10 @@ function initGrids() {
     if (rider.typeId != "wan:theme_selector") {
       ride = rider.getComponent(EntityComponentTypes.Riding).entityRidingOn;
     }
-    const page = ride.getProperty("wan:page");
+    let page = ride.getProperty("wan:page");
     switch (rider.typeId) {
       case "wan:grid_block":
-        const index = rider.getDynamicProperty("wan:id").split("_")[1];
+        let index = rider.getDynamicProperty("wan:id").split("_")[1];
         giveBlock(page, parseInt(index), player);
         ride.playAnimation("animation.grid.select_" + index);
         break;
@@ -1740,11 +1751,11 @@ function initGrids() {
   });
 }
 function giveBlock(page, index, player) {
-  const block = blockIndex[page * pageDim + index];
+  let block = blockIndex[page * pageDim + index];
   if (block == "") {
     return;
   }
-  const inv = player.getComponent(EntityComponentTypes.Inventory).container;
+  let inv = player.getComponent(EntityComponentTypes.Inventory).container;
   inv.addItem(new ItemStack(`wan:${block}`, 64));
 }
 function changeTheme(page, player) {
@@ -1774,6 +1785,9 @@ function changePage(entity, page, arrowType) {
   }
   entity.setProperty("wan:page", page);
 }
+world.afterEvents.playerSpawn.subscribe((data) => {
+  data.player.setGameMode(GameMode.survival);
+});
 initManager();
 initLevels();
 initManager$1();
