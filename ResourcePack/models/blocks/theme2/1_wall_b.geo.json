@@ -1,0 +1,39 @@
+{
+	"format_version": "1.19.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.1_wall_b",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "block",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "block2",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-6, 0.25, -6],
+							"size": [12, 12, 12],
+							"uv": {
+								"north": {"uv": [0, 8], "uv_size": [8, 8]},
+								"east": {"uv": [8, 8], "uv_size": [8, 8]},
+								"south": {"uv": [0, 8], "uv_size": [8, 8]},
+								"west": {"uv": [8, 8], "uv_size": [8, 8]},
+								"up": {"uv": [16, 16], "uv_size": [-8, -8]},
+								"down": {"uv": [16, 8], "uv_size": [-8, -8]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

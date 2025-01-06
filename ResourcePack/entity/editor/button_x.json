@@ -1,0 +1,29 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "wan:button_x",
+        "materials": {
+          "default": "entity_alphablend"
+        },
+        "textures": {
+          "default": "textures/entity/editor/button_x"
+        },
+        "geometry": {
+          "default": "geometry.button_x"
+        },
+        "animations": {
+          "idle": "animation.button_x.idle_0"
+        },
+        "scripts": {
+          "animate": [
+            "idle"
+          ]
+        },
+        "render_controllers": [
+          "controller.render.default"
+        ]
+      }
+    }
+  }
+  

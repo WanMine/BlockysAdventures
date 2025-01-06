@@ -1,4 +1,49 @@
 {
+	"4_wall_b": {
+		"sound": "stone"
+	},
+	"4_wall_a": {
+		"sound": "stone"
+	},
+	"3_wall_b": {
+		"sound": "stone"
+	},
+	"3_wall_a": {
+		"sound": "stone"
+	},
+	"2_wall_b": {
+		"sound": "stone"
+	},
+	"2_wall_a": {
+		"sound": "stone"
+	},
+	"4_ground_b": {
+		"sound": "stone"
+	},
+	"4_ground_a": {
+		"sound": "stone"
+	},
+	"3_ground_b": {
+		"sound": "stone"
+	},
+	"3_ground_a": {
+		"sound": "stone"
+	},
+	"2_ground_b": {
+		"sound": "stone"
+	},
+	"2_ground_a": {
+		"sound": "stone"
+	},
+	"4_bottom": {
+		"sound": "stone"
+	},
+	"3_bottom": {
+		"sound": "stone"
+	},
+	"2_bottom": {
+		"sound": "stone"
+	},
 	"wan_barrier": {
 		"sound": "stone"
 	},

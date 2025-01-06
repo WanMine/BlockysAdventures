@@ -1,0 +1,94 @@
+{
+  "format_version": "1.20.80",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "wan:theme_selector",
+      "is_summonable": true,
+      "is_spawnable": false,
+      "is_experimental": false,
+      "properties": {
+        "wan:page": {
+          "type": "int",
+          "range": [
+            0,
+            4
+          ],
+          "default": 0,
+          "client_sync": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "grid"
+        ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+      "minecraft:custom_hit_test": {
+        "hitboxes": [
+          {
+            "width": 1,
+            "height": 2,
+            "pivot": [
+              0,
+              1.35,
+              0
+            ]
+          }
+        ]
+      },
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": false
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1,
+        "max": 1
+      },
+      "minecraft:rideable": {
+        "controlling_seat": 0,
+        "family_types": [
+          "grid"
+        ],
+        "pull_in_entities": false,
+        "rider_can_interact": false,
+        "seat_count": 6,
+        "seats": [
+          {
+            "lock_rider_rotation": 0,
+            "min_rider_count": 0,
+            "max_rider_count": 6,
+            "position": [
+              0,
+              0.94,
+              0.8
+            ]
+          },
+          {
+            "lock_rider_rotation": 0,
+            "min_rider_count": 0,
+            "max_rider_count": 6,
+            "position": [
+              0,
+              0.94,
+              -0.8
+            ]
+          }
+        ]
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "deals_damage": false
+        }
+      }
+    }
+  }
+}

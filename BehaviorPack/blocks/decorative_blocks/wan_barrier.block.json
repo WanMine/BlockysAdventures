@@ -15,7 +15,7 @@
 			"minecraft:geometry": "geometry.wan_barrier",
 			"minecraft:material_instances": {
 				"*": {
-					"texture": "wan_barrier",
+					"texture": "des_wan_barrier",
 					"render_method": "alpha_test",
 					"face_dimming": false,
 					"ambient_occlusion": false

@@ -18,7 +18,7 @@
       "minecraft:destructible_by_explosion": false,
       "minecraft:material_instances": {
         "*": {
-          "texture": "spawn_block",
+          "texture": "edit_spawn_block",
           "render_method": "alpha_test",
           "face_dimming": false,
           "ambient_occlusion": false

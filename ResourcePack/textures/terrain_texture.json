@@ -4,164 +4,203 @@
 	"padding": 8,
 	"num_mip_levels": 4,
 	"texture_data": {
-		"wan_barrier": {
-			"textures": "textures/blocks/wan_barrier.png"
+		"t1_bottom": {
+			"textures": "textures/blocks/theme1/bottom.png"
 		},
-		"wall_block_2": {
-			"textures": "textures/blocks/wall_block_2.png"
+		"t1_ground_a": {
+			"textures": "textures/blocks/theme1/ground_a.png"
 		},
-		"wall_block_1": {
-			"textures": "textures/blocks/wall_block_1.png"
+		"t1_ground_b": {
+			"textures": "textures/blocks/theme1/ground_b.png"
 		},
-		"tmp_template_logic_blocks": {
-			"textures": "textures/blocks/tmp_template_logic_blocks.png"
+		"t1_wall_a": {
+			"textures": "textures/blocks/theme1/wall_a.png"
 		},
-		"d_eye": {
-			"textures": "textures/blocks/d_eye.png"
+		"t1_wall_b": {
+			"textures": "textures/blocks/theme1/wall_b.png"
 		},
-		"d_fence_angular": {
-			"textures": "textures/blocks/d_fence_angular.png"
+		"t2_bottom": {
+			"textures": "textures/blocks/theme2/bottom.png"
 		},
-		"d_akri": {
-			"textures": "textures/blocks/d_akri.png"
+		"t2_ground_a": {
+			"textures": "textures/blocks/theme2/ground_a.png"
 		},
-		"d_chest": {
-			"textures": "textures/blocks/d_chest.png"
+		"t2_ground_b": {
+			"textures": "textures/blocks/theme2/ground_b.png"
 		},
-		"d_floor_tiles_lobby": {
-			"textures": "textures/blocks/d_floor_tiles_lobby.png"
+		"t2_wall_a": {
+			"textures": "textures/blocks/theme2/wall_a.png"
 		},
-		"d_floor_tiles_editor": {
-			"textures": "textures/blocks/d_floor_tiles_editor.png"
+		"t2_wall_b": {
+			"textures": "textures/blocks/theme2/wall_b.png"
 		},
-		"d_fence_mid": {
-			"textures": "textures/blocks/d_fence_mid.png"
+		"t3_bottom": {
+			"textures": "textures/blocks/theme3/bottom.png"
 		},
-		"d_fence_end": {
-			"textures": "textures/blocks/d_fence_end.png"
+		"t3_ground_a": {
+			"textures": "textures/blocks/theme3/ground_a.png"
 		},
-		"d_floor_void": {
-			"textures": "textures/blocks/d_floor_void.png"
+		"t3_ground_b": {
+			"textures": "textures/blocks/theme3/ground_b.png"
 		},
-		"d_orange": {
-			"textures": "textures/blocks/d_orange.png"
+		"t3_wall_a": {
+			"textures": "textures/blocks/theme3/wall_a.png"
 		},
-		"d_yellow": {
-			"textures": "textures/blocks/d_yellow.png"
+		"t3_wall_b": {
+			"textures": "textures/blocks/theme3/wall_b.png"
 		},
-		"d_grate": {
-			"textures": "textures/blocks/d_grate.png"
+		"t4_bottom": {
+			"textures": "textures/blocks/theme4/bottom.png"
 		},
-		"d_floor_slab": {
-			"textures": "textures/blocks/d_floor_slab.png"
+		"t4_ground_a": {
+			"textures": "textures/blocks/theme4/ground_a.png"
 		},
-		"d_plate_mid": {
-			"textures": "textures/blocks/d_plate_mid.png"
+		"t4_ground_b": {
+			"textures": "textures/blocks/theme4/ground_b.png"
 		},
-		"d_plate_end": {
-			"textures": "textures/blocks/d_plate_end.png"
+		"t4_wall_a": {
+			"textures": "textures/blocks/theme4/wall_a.png"
 		},
-		"d_floor_polished": {
-			"textures": "textures/blocks/d_floor_polished.png"
+		"t4_wall_b": {
+			"textures": "textures/blocks/theme4/wall_b.png"
 		},
-		"1_wall_b": {
-			"textures": "textures/blocks/1_wall_b.png"
+		"t5_bottom": {
+			"textures": "textures/blocks/theme5/bottom.png"
 		},
-		"1_wall_a": {
-			"textures": "textures/blocks/1_wall_a.png"
+		"t5_ground_a": {
+			"textures": "textures/blocks/theme5/ground_a.png"
 		},
-		"1_ground_b": {
-			"textures": "textures/blocks/1_ground_b.png"
+		"t5_ground_b": {
+			"textures": "textures/blocks/theme5/ground_b.png"
 		},
-		"1_ground_a": {
-			"textures": "textures/blocks/1_ground_a.png"
+		"t5_wall_a": {
+			"textures": "textures/blocks/theme5/wall_a.png"
 		},
-		"1_bottom": {
-			"textures": "textures/blocks/1_bottom.png"
+		"t5_wall_b": {
+			"textures": "textures/blocks/theme5/wall_b.png"
 		},
-		"0_wall_b": {
-			"textures": "textures/blocks/0_wall_b.png"
+		"des_akri": {
+			"textures": "textures/blocks/design/akri.png"
 		},
-		"0_wall_a": {
-			"textures": "textures/blocks/0_wall_a.png"
+		"des_black_block": {
+			"textures": "textures/blocks/design/black_block.png"
 		},
-		"0_ground_b": {
-			"textures": "textures/blocks/0_ground_b.png"
+		"des_chest": {
+			"textures": "textures/blocks/design/chest.png"
 		},
-		"0_ground_a": {
-			"textures": "textures/blocks/0_ground_a.png"
+		"des_eye": {
+			"textures": "textures/blocks/design/eye.png"
 		},
-		"0_bottom": {
-			"textures": "textures/blocks/0_bottom.png"
+		"des_fence_angular": {
+			"textures": "textures/blocks/design/fence_angular.png"
 		},
-		"tnt_u": {
-			"textures": "textures/blocks/tnt_u.png"
+		"des_fence_end": {
+			"textures": "textures/blocks/design/fence_end.png"
 		},
-		"tnt_u_ng": {
-			"textures": "textures/blocks/tnt_u_ng.png"
+		"des_fence_mid": {
+			"textures": "textures/blocks/design/fence_mid.png"
 		},
-		"glass_block_u": {
-			"textures": "textures/blocks/glass_block_u.png"
+		"des_floor_polished": {
+			"textures": "textures/blocks/design/floor_polished.png"
 		},
-		"redirect_u": {
-			"textures": "textures/blocks/redirect_u.png"
+		"des_floor_slab": {
+			"textures": "textures/blocks/design/floor_slab.png"
 		},
-		"redirect_base_u": {
-			"textures": "textures/blocks/redirect_base_u.png"
+		"des_floor_tiles_editor": {
+			"textures": "textures/blocks/design/floor_tiles_editor.png"
 		},
-		"stop_block_u": {
-			"textures": "textures/blocks/stop_block_u.png"
+		"des_floor_tiles_lobby": {
+			"textures": "textures/blocks/design/floor_tiles_lobby.png"
 		},
-		"stop_block_base_u": {
-			"textures": "textures/blocks/stop_block_base_u.png"
+		"des_floor_void": {
+			"textures": "textures/blocks/design/floor_void.png"
 		},
-		"win_block_u": {
-			"textures": "textures/blocks/win_block_u.png"
+		"des_grate": {
+			"textures": "textures/blocks/design/grate.png"
 		},
-		"win_block_base_u": {
-			"textures": "textures/blocks/win_block_base_u.png"
+		"des_orange": {
+			"textures": "textures/blocks/design/orange.png"
 		},
-		"spawn_block_u": {
-			"textures": "textures/blocks/spawn_block_u.png"
+		"des_plate_end": {
+			"textures": "textures/blocks/design/plate_end.png"
 		},
-		"spawn_block_base_u": {
-			"textures": "textures/blocks/spawn_block_base_u.png"
+		"des_plate_mid": {
+			"textures": "textures/blocks/design/plate_mid.png"
 		},
-		"black_block_u": {
-			"textures": "textures/blocks/black_block_u.png"
+		"des_wan_barrier": {
+			"textures": "textures/blocks/design/wan_barrier.png"
 		},
-		"dynamite_block": {
-			"textures": "textures/blocks/dynamite_block"
+		"des_yellow": {
+			"textures": "textures/blocks/design/yellow.png"
 		},
-		"glass_block": {
-			"textures": "textures/blocks/glass_block"
+		"edit_dynamite_block": {
+			"textures": "textures/blocks/editor/dynamite_block.png"
 		},
-		"normal_block": {
-			"textures": "textures/blocks/normal_block"
+		"edit_glass_block": {
+			"textures": "textures/blocks/editor/glass_block.png"
 		},
-		"redirect_block_down": {
-			"textures": "textures/blocks/redirect_block_down"
+		"edit_normal_block": {
+			"textures": "textures/blocks/editor/normal_block.png"
 		},
-		"redirect_block_left": {
-			"textures": "textures/blocks/redirect_block_left"
+		"edit_redirect_block_down": {
+			"textures": "textures/blocks/editor/redirect_block_down.png"
 		},
-		"redirect_block_right": {
-			"textures": "textures/blocks/redirect_block_right"
+		"edit_redirect_block_left": {
+			"textures": "textures/blocks/editor/redirect_block_left.png"
 		},
-		"redirect_block_up": {
-			"textures": "textures/blocks/redirect_block_up"
+		"edit_redirect_block_right": {
+			"textures": "textures/blocks/editor/redirect_block_right.png"
 		},
-		"spawn_block": {
-			"textures": "textures/blocks/spawn_block"
+		"edit_redirect_block_up": {
+			"textures": "textures/blocks/editor/redirect_block_up.png"
 		},
-		"stop_block": {
-			"textures": "textures/blocks/stop_block"
+		"edit_spawn_block": {
+			"textures": "textures/blocks/editor/spawn_block.png"
 		},
-		"wall_block": {
-			"textures": "textures/blocks/wall_block"
+		"edit_stop_block": {
+			"textures": "textures/blocks/editor/stop_block.png"
 		},
-		"win_block": {
-			"textures": "textures/blocks/win_block"
+		"edit_wall_block_1": {
+			"textures": "textures/blocks/editor/wall_block_1.png"
+		},
+		"edit_wall_block_2": {
+			"textures": "textures/blocks/editor/wall_block_2.png"
+		},
+		"edit_wall_block": {
+			"textures": "textures/blocks/editor/wall_block.png"
+		},
+		"edit_win_block": {
+			"textures": "textures/blocks/editor/win_block.png"
+		},
+		"log_glass_block": {
+			"textures": "textures/blocks/logic/glass_block.png"
+		},
+		"log_redirect_base": {
+			"textures": "textures/blocks/logic/redirect_base.png"
+		},
+		"log_redirect": {
+			"textures": "textures/blocks/logic/redirect.png"
+		},
+		"log_spawn_block_base": {
+			"textures": "textures/blocks/logic/spawn_block_base.png"
+		},
+		"log_spawn_block": {
+			"textures": "textures/blocks/logic/spawn_block.png"
+		},
+		"log_stop_block_base": {
+			"textures": "textures/blocks/logic/stop_block_base.png"
+		},
+		"log_stop_block": {
+			"textures": "textures/blocks/logic/stop_block.png"
+		},
+		"log_tnt": {
+			"textures": "textures/blocks/editor/tnt_ng.png"
+		},
+		"log_win_block_base": {
+			"textures": "textures/blocks/logic/win_block_base.png"
+		},
+		"log_win_block": {
+			"textures": "textures/blocks/logic/win_block.png"
 		}
 	}
 }

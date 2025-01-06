@@ -18,7 +18,7 @@
       "minecraft:destructible_by_explosion": false,
       "minecraft:material_instances": {
         "*": {
-          "texture": "redirect_block_down",
+          "texture": "edit_redirect_block_down",
           "render_method": "alpha_test",
           "face_dimming": false,
           "ambient_occlusion": false

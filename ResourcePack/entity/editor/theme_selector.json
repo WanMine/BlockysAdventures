@@ -1,0 +1,43 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wan:theme_selector",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/editor/theme_selector"
+      },
+      "geometry": {
+        "default": "geometry.theme_selector"
+      },
+      "animations": {
+        "idle": "animation.theme_selector.idle",
+        "page1": "animation.theme_selector.page1",
+        "page2": "animation.theme_selector.page2",
+        "page3": "animation.theme_selector.page3",
+        "page4": "animation.theme_selector.page4",
+        "page5": "animation.theme_selector.page5",
+        "0to1": "animation.theme_selector.0to1",
+        "1to2": "animation.theme_selector.1to2",
+        "2to3": "animation.theme_selector.2to3",
+        "3to4": "animation.theme_selector.3to4",
+        "1to0": "animation.theme_selector.1to0",
+        "2to1": "animation.theme_selector.2to1",
+        "3to2": "animation.theme_selector.3to2",
+        "4to3": "animation.theme_selector.4to3",
+        "pages": "controller.animation.theme_selector.pages"
+      },
+      "scripts": {
+        "animate": [
+          "pages",
+          "idle"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.theme_selector"
+      ]
+    }
+  }
+}

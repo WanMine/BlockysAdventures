@@ -32,7 +32,7 @@
           "left_arrow": "q.property('wan:page') > 0"
         },
         {
-          "right_arrow": "q.property('wan:page') < 1"
+          "right_arrow": "q.property('wan:page') < 4"
         }
       ],
       "materials": [

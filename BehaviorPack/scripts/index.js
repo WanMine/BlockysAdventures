@@ -1,14 +1,14 @@
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
-import { world, system, StructureSaveMode, EntityComponentTypes, Direction, BlockPermutation, ItemStack, GameMode } from "@minecraft/server";
+import { world, system, StructureSaveMode, StructureRotation, EntityComponentTypes, Direction, BlockPermutation, ItemStack, GameMode } from "@minecraft/server";
 import { ActionFormData, ModalFormData, MessageFormData } from "@minecraft/server-ui";
 function randomInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 const maxLevelSize = 15;
 const levelThemes = {};
-const themeList = ["Forest", "Desert"];
+const themeList = ["Forest", "Desert", "Babylon", "Ancient", "Glacier"];
 function initLevels() {
   levelThemes["Forest"] = new LevelTheme(
     "wan:0_bottom",
@@ -23,6 +23,27 @@ function initLevels() {
     "wan:1_ground_b",
     "wan:1_wall_a",
     "wan:1_wall_b"
+  );
+  levelThemes["Babylon"] = new LevelTheme(
+    "wan:2_bottom",
+    "wan:2_ground_a",
+    "wan:2_ground_b",
+    "wan:2_wall_a",
+    "wan:2_wall_b"
+  );
+  levelThemes["Ancient"] = new LevelTheme(
+    "wan:3_bottom",
+    "wan:3_ground_a",
+    "wan:3_ground_b",
+    "wan:3_wall_a",
+    "wan:3_wall_b"
+  );
+  levelThemes["Glacier"] = new LevelTheme(
+    "wan:4_bottom",
+    "wan:4_ground_a",
+    "wan:4_ground_b",
+    "wan:4_wall_a",
+    "wan:4_wall_b"
   );
 }
 class LevelTheme {
@@ -64,29 +85,42 @@ const defaultLevels = [
   "wan:m2",
   "wan:m3",
   "wan:m4",
-  "wan:m5"
+  "wan:m5",
+  "wan:temp"
 ];
 const variantList = {
   "wan:0_ground_a": 0,
   "wan:0_ground_b": 1,
   "wan:1_ground_a": 2,
   "wan:1_ground_b": 3,
-  "wan:glass_block": 4,
-  "wan:redirect_block_up": 5,
-  "wan:redirect_block_down": 6,
-  "wan:redirect_block_left": 7,
-  "wan:redirect_block_right": 8,
-  "wan:spawn_block": 9,
-  "wan:win_block": 10,
-  "wan:stop_block": 11
+  "wan:2_ground_a": 4,
+  "wan:2_ground_b": 5,
+  "wan:3_ground_a": 6,
+  "wan:3_ground_b": 7,
+  "wan:4_ground_a": 8,
+  "wan:4_ground_b": 9,
+  "wan:glass_block": 10,
+  "wan:redirect_block_up": 11,
+  "wan:redirect_block_down": 12,
+  "wan:redirect_block_left": 13,
+  "wan:redirect_block_right": 14,
+  "wan:spawn_block": 15,
+  "wan:win_block": 16,
+  "wan:stop_block": 17
 };
 const markVariantList = {
   "wan:0_wall_a": 0,
   "wan:0_wall_b": 1,
   "wan:1_wall_a": 2,
   "wan:1_wall_b": 3,
-  "wan:tnt_u": 4,
-  "minecraft:air": 4
+  "wan:2_wall_a": 4,
+  "wan:2_wall_b": 5,
+  "wan:3_wall_a": 6,
+  "wan:3_wall_b": 7,
+  "wan:4_wall_a": 8,
+  "wan:4_wall_b": 9,
+  "wan:tnt_u": 10,
+  "minecraft:air": 10
 };
 const tpBackPos = { x: 0.5, y: 31, z: 0.5 };
 function createTutorialGame(player) {
@@ -149,6 +183,9 @@ let themeGrid;
 let blockGrid;
 function initManager$1() {
   world.afterEvents.playerSpawn.subscribe((data) => {
+    if (data.player.getDynamicProperty("currentlyEditingId") > -1) {
+      data.player.teleport({ x: 0.5, y: 31, z: 0.5 }, { keepVelocity: false, rotation: { x: 0, y: 0 } });
+    }
     data.player.setDynamicProperty("currentlyEditingId", -1);
     data.player.setDynamicProperty("wan:view_area", false);
   });
@@ -162,6 +199,37 @@ function initManager$1() {
       themeGrid = data.entity;
     } else if (data.entity.typeId == "wan:grid") {
       blockGrid = data.entity;
+    }
+  });
+  world.afterEvents.entityHitEntity.subscribe((data) => {
+    if (data.hitEntity.typeId == "wan:button_x") {
+      data.hitEntity.playAnimation("animation.button_x.select_x");
+      data.damagingEntity.dimension.runCommand(`fill ${startLogicEditorPos.x} ${startLogicEditorPos.y} ${startLogicEditorPos.z} ${startLogicEditorPos.x + maxLevelSize - 1} ${startLogicEditorPos.y} ${startLogicEditorPos.z + maxLevelSize - 1} air`);
+    } else if (data.hitEntity.typeId == "wan:button_rotate") {
+      data.hitEntity.playAnimation("animation.button_rotate.select_rotate");
+      system.run(() => {
+        if (world.structureManager.get("wan:temp") != void 0) {
+          world.structureManager.delete("wan:temp");
+        }
+        world.structureManager.createFromWorld(
+          "wan:temp",
+          data.damagingEntity.dimension,
+          startLogicEditorPos,
+          {
+            x: startLogicEditorPos.x + maxLevelSize - 1,
+            y: startLogicEditorPos.y,
+            z: startLogicEditorPos.z + maxLevelSize - 1
+          },
+          {
+            includeBlocks: true,
+            includeEntities: true,
+            saveMode: StructureSaveMode.World
+          }
+        );
+        system.run(() => {
+          world.structureManager.place("wan:temp", data.damagingEntity.dimension, startLogicEditorPos, { rotation: StructureRotation.Rotate90 });
+        });
+      });
     }
   });
   system.runInterval(() => {
@@ -211,7 +279,9 @@ function saveLevel(player, level, dimension, callback, savePos = startLogicEdito
         saveMode: StructureSaveMode.World
       }
     );
-    player.sendMessage("Level saved!");
+    if (player != void 0) {
+      player.sendMessage("Level saved!");
+    }
     callback();
   });
 }
@@ -339,6 +409,15 @@ function startEditingLevel(player, levelId) {
     case "Desert":
       page = 1;
       break;
+    case "Babylon":
+      page = 2;
+      break;
+    case "Ancient":
+      page = 3;
+      break;
+    case "Glacier":
+      page = 4;
+      break;
   }
   themeGrid.setProperty("wan:page", page);
   editorTimerId = system.runInterval(() => {
@@ -376,22 +455,29 @@ function placeRotatingColumn(dimension, position, rotation, typeIdL1, typeIdL2, 
     );
   }
 }
-function stopEditingLevel(player, levelId, bypassCheck = false) {
+function stopEditingLevel(player, levelId, bypassCheck = false, shouldSave = true) {
   if (editorTimerId != -1) {
     system.clearRun(editorTimerId);
   }
-  saveLevel(player, levels[levelId], player.dimension, () => {
-    player.dimension.runCommand(`fill ${startLogicEditorPos.x} ${startLogicEditorPos.y} ${startLogicEditorPos.z} ${startLogicEditorPos.x + maxLevelSize - 1} ${startLogicEditorPos.y} ${startLogicEditorPos.z + maxLevelSize - 1} air`);
-    player.dimension.runCommand(`fill ${startDesignEditorPos.x} ${startDesignEditorPos.y} ${startDesignEditorPos.z} ${startDesignEditorPos.x + maxLevelSize - 1} ${startDesignEditorPos.y + 2} ${startDesignEditorPos.z + maxLevelSize - 1} air`);
-    player.setDynamicProperty("currentlyEditingId", -1);
-    let inventory = player.getComponent(
-      EntityComponentTypes.Inventory
-    );
-    if (inventory.container == void 0) {
-      return;
+  let callback = () => {
+    world.getDimension("overworld").runCommand(`fill ${startLogicEditorPos.x} ${startLogicEditorPos.y} ${startLogicEditorPos.z} ${startLogicEditorPos.x + maxLevelSize - 1} ${startLogicEditorPos.y} ${startLogicEditorPos.z + maxLevelSize - 1} air`);
+    world.getDimension("overworld").runCommand(`fill ${startDesignEditorPos.x} ${startDesignEditorPos.y} ${startDesignEditorPos.z} ${startDesignEditorPos.x + maxLevelSize - 1} ${startDesignEditorPos.y + 2} ${startDesignEditorPos.z + maxLevelSize - 1} air`);
+    if (player != void 0) {
+      player.setDynamicProperty("currentlyEditingId", -1);
+      let inventory = player.getComponent(
+        EntityComponentTypes.Inventory
+      );
+      if (inventory.container == void 0) {
+        return;
+      }
+      inventory.container.clearAll();
     }
-    inventory.container.clearAll();
-  }, void 0, bypassCheck);
+  };
+  if (shouldSave) {
+    saveLevel(player, levels[levelId], world.getDimension("overworld"), callback, void 0, bypassCheck);
+  } else {
+    callback();
+  }
 }
 function canPlayLevel(player) {
   let spawnBlockCount = 0;
@@ -476,9 +562,9 @@ function openMainMenu(player, arcadePos, playLevelCallback) {
   loadLevels();
   let form = new ActionFormData();
   form.title("Level Menu");
-  form.button("Create New");
-  form.button("Import");
-  form.button("Levels");
+  form.button("Create New Level", "textures/ui/menu_icons/create_new_level");
+  form.button("Download Level", "textures/ui/menu_icons/download_level");
+  form.button("Play Your Levels", "textures/ui/menu_icons/play_your_levels");
   form.show(player).then((r) => {
     if (r.canceled) return;
     let response = r.selection;
@@ -488,10 +574,7 @@ function openMainMenu(player, arcadePos, playLevelCallback) {
         openLevelCreatorMenu(player, arcadePos);
       }
     } else if (response == 1) {
-      if (isAnotherPlayerEditing()) ;
-      else {
-        openImportMenu(player);
-      }
+      openImportMenu(player);
     } else if (response == 2) {
       openLevelsMenu(player, arcadePos, playLevelCallback);
     }
@@ -503,7 +586,7 @@ function openLevelsMenu(player, arcadePos, playLevelCallback) {
   loadLevels();
   let form = new ActionFormData();
   form.title("Levels");
-  form.button("Back");
+  form.button("Back", "textures/ui/menu_icons/back");
   levels.forEach((level) => {
     form.button(level.name);
   });
@@ -522,10 +605,13 @@ function openLevelsMenu(player, arcadePos, playLevelCallback) {
 function openLevelEditorMenu(player, arcadePos) {
   let form = new ActionFormData();
   form.title("Level Editor");
-  form.button("Play");
-  form.button("Save");
-  form.button("Share");
-  form.button("Exit Editor");
+  form.button("Play your Level", "textures/ui/menu_icons/play_your_level");
+  form.button("Save Level", "textures/ui/menu_icons/save_level");
+  form.button("Undo Modifications", "textures/ui/menu_icons/undo_modifications");
+  form.button("Share Level", "textures/ui/menu_icons/share_level");
+  form.button("Import from Code", "textures/ui/menu_icons/import_from_code");
+  form.button("Exit without Save", "textures/ui/menu_icons/exit_without_save");
+  form.button("Exit and Save", "textures/ui/menu_icons/exit_and_save");
   form.show(player).then((r) => {
     if (r.canceled) return;
     switch (r.selection) {
@@ -542,11 +628,21 @@ function openLevelEditorMenu(player, arcadePos) {
         });
         break;
       case 2:
+        placeLevelInstant(levels[player.getDynamicProperty("currentlyEditingId")].structureId, player.dimension, startLogicEditorPos);
+        break;
+      case 3:
         if (canPlayLevel(player)) {
           exportLevel(player);
         }
         break;
-      case 3:
+      case 4:
+        openImportMenu(player, startLogicEditorPos, false, levels[player.getDynamicProperty("currentlyEditingId")]);
+        break;
+      case 5:
+        stopEditingLevel(player, player.getDynamicProperty("currentlyEditingId"), true, false);
+        tpPlayerToLobby(player, arcadePos);
+        break;
+      case 6:
         if (canPlayLevel(player)) {
           stopEditingLevel(player, player.getDynamicProperty("currentlyEditingId"));
           tpPlayerToLobby(player, arcadePos);
@@ -557,21 +653,30 @@ function openLevelEditorMenu(player, arcadePos) {
     console.error(e, e.stack);
   });
 }
-function openImportMenu(player) {
+function openImportMenu(player, savePos = { x: 9, y: 18, z: 9 }, shouldCreateNew = true, level = void 0) {
   let form = new ModalFormData();
   form.title("Import Level");
-  form.textField("Level Name", "Level Name", "New Level");
+  if (level == void 0) {
+    form.textField("Level Name", "Level Name", "New Level");
+  }
   form.textField("Code Part 1", "Cannot be empty");
   form.textField("Code Part 2", "Can be empty");
   form.textField("Code Part 3", "Can be empty");
-  form.dropdown("Level Theme", themeList);
+  if (level == void 0) {
+    form.dropdown("Level Theme", themeList);
+  }
   form.submitButton("Import");
   form.show(player).then((r) => {
     if (r.canceled) return;
-    let [levelName, levelCodeP1, levelCodeP2, levelCodeP3, levelThemeId] = r.formValues;
-    let levelTheme = themeList[levelThemeId];
-    if (levelCodeP1 != "") {
-      importLevel(levelName, levelCodeP1 + levelCodeP2 + levelCodeP3, levelTheme, player);
+    if (level == void 0) {
+      let [levelName, levelCodeP1, levelCodeP2, levelCodeP3, levelThemeId] = r.formValues;
+      let levelTheme = themeList[levelThemeId];
+      if (levelCodeP1 != "") {
+        importLevel(levelName, levelCodeP1 + levelCodeP2 + levelCodeP3, levelTheme, player, savePos, shouldCreateNew);
+      }
+    } else {
+      let [levelCodeP1, levelCodeP2, levelCodeP3] = r.formValues;
+      importLevel(level.name.toLowerCase().replaceAll(" ", "_"), levelCodeP1 + levelCodeP2 + levelCodeP3, level.theme, player, savePos, shouldCreateNew);
     }
   }).catch((e) => {
     console.error(e, e.stack);
@@ -596,10 +701,9 @@ const lettersMap = {
 const blocksMap = Object.fromEntries(
   Object.entries(lettersMap).map(([key, value]) => [value, key])
 );
-function importLevel(levelName, levelCode, levelTheme, player) {
+function importLevel(levelName, levelCode, levelTheme, player, savePos, shouldCreateNew) {
   let nChar = "";
   let oldJ = 0;
-  let savePos = { x: 9, y: 18, z: 9 };
   for (let i = 0; i < levelCode.length; i++) {
     let char = levelCode[i];
     if (!isNaN(parseInt(char))) {
@@ -624,10 +728,12 @@ function importLevel(levelName, levelCode, levelTheme, player) {
       oldJ += finalNum;
     }
   }
-  let levelId = `wan:${levelName.toLowerCase().replaceAll(" ", "_")}_${levelTheme.toString().toLowerCase()}`;
-  let id = levels.push(new Level(levelName, levelTheme, levelId));
-  saveLevel(player, levels[id - 1], player.dimension, () => {
-  }, savePos, true);
+  if (shouldCreateNew) {
+    let levelId = `wan:${levelName.toLowerCase().replaceAll(" ", "_")}_${levelTheme.toString().toLowerCase()}`;
+    let id = levels.push(new Level(levelName, levelTheme, levelId));
+    saveLevel(player, levels[id - 1], player.dimension, () => {
+    }, savePos, true);
+  }
   player.sendMessage("Level imported successfully!");
 }
 function exportLevel(player) {
@@ -656,9 +762,9 @@ function exportLevel(player) {
   }
   let form = new ModalFormData();
   form.title("Share Code");
-  form.textField("Code Part 1", "", finalCode.slice(0, 100));
-  form.textField("Code Part 2", "", finalCode.slice(100, 200));
-  form.textField("Code Part 3", "", finalCode.slice(200));
+  form.textField("Code Part 1", "", "Part 1: " + finalCode.slice(0, 100));
+  form.textField("Code Part 2", "", " - Part 2: " + finalCode.slice(100, 200));
+  form.textField("Code Part 3", "", " - Part 3: " + finalCode.slice(200));
   form.show(player);
 }
 function openLevelCreatorMenu(player, arcadePos) {
@@ -681,9 +787,9 @@ function openLevelCreatorMenu(player, arcadePos) {
 function openLevelMenu(player, id, arcadePos, playLevelCallback) {
   let form = new ActionFormData();
   form.title("Edit Level");
-  form.button("Play");
-  form.button("Edit");
-  form.button("Delete");
+  form.button("Play this Level", "textures/ui/menu_icons/play_this_level");
+  form.button("Edit this Level", "textures/ui/menu_icons/edit_this_level");
+  form.button("Delete this Level", "textures/ui/menu_icons/delete_this_level");
   form.show(player).then((r) => {
     if (r.canceled) return;
     let response = r.selection;
@@ -1198,7 +1304,7 @@ class GameInstance {
     this.pawn.clearVelocity();
   }
   moveUp() {
-    let maxDist = this.getZLoc();
+    let maxDist = this.getZLoc() + 1;
     var moveDist = this.checkMovement(maxDist, true, true);
     this.stopPos = {
       x: Math.round((this.pawn.location.x + Number.EPSILON) * 10) / 10,
@@ -1207,7 +1313,7 @@ class GameInstance {
     };
   }
   moveDown() {
-    let maxDist = maxLevelSize - this.getZLoc() - 1;
+    let maxDist = maxLevelSize - this.getZLoc();
     var moveDist = this.checkMovement(maxDist, true, false);
     this.stopPos = {
       x: Math.round((this.pawn.location.x + Number.EPSILON) * 10) / 10,
@@ -1216,7 +1322,7 @@ class GameInstance {
     };
   }
   moveLeft() {
-    let maxDist = this.getXLoc();
+    let maxDist = this.getXLoc() + 1;
     var moveDist = this.checkMovement(maxDist, false, true);
     this.stopPos = {
       x: Math.round((this.pawn.location.x + Number.EPSILON) * 10) / 10 - moveDist,
@@ -1225,7 +1331,7 @@ class GameInstance {
     };
   }
   moveRight() {
-    let maxDist = maxLevelSize - this.getXLoc() - 1;
+    let maxDist = maxLevelSize - this.getXLoc();
     var moveDist = this.checkMovement(maxDist, false, false);
     this.stopPos = {
       x: Math.round((this.pawn.location.x + Number.EPSILON) * 10) / 10 + moveDist,
@@ -1461,6 +1567,7 @@ class Game {
     __publicField(this, "wasHomePressed", false);
     __publicField(this, "wasResetPressed", false);
     __publicField(this, "movementCooldown", 0);
+    __publicField(this, "prevTicks", 0);
     this.movementPos = movementPos;
     this.tpBackPos = tpBackPos2;
     this.gameInstances = [];
@@ -1476,8 +1583,9 @@ class Game {
   updateMove(newInstance, instanceId) {
     let xChange = this.player.location.x - this.movementPos.x;
     let zChange = this.player.location.z - this.movementPos.z;
-    this.movementCooldown = Math.max(0, this.movementCooldown - 5);
-    if (this.movementCooldown == 0 && this.shouldSetGUI) {
+    if (system.currentTick >= this.prevTicks + this.movementCooldown && this.shouldSetGUI) {
+      this.movementCooldown = 0;
+      this.prevTicks = system.currentTick;
       system.runTimeout(() => {
         if (this.wasMovePressed) {
           this.player.dimension.runCommand(`title "${this.player.name}" title hidejoystick1`);
@@ -1502,7 +1610,7 @@ class Game {
         this.resetCooldown(60);
         this.wasResetPressed = true;
       }
-      if (Math.abs(xChange) > Math.abs(zChange)) {
+      if (Math.abs(xChange) > 0.1 && Math.abs(xChange) > Math.abs(zChange)) {
         if (xChange > 0) {
           newInstance.addInput(PlayerMoveDirection.RIGHT);
           this.player.dimension.runCommand(`title "${this.player.name}" title hidejoystick5`);
@@ -1512,7 +1620,7 @@ class Game {
           this.player.dimension.runCommand(`title "${this.player.name}" title hidejoystick4`);
           this.wasMovePressed = true;
         }
-      } else if (Math.abs(xChange) < Math.abs(zChange)) {
+      } else if (Math.abs(zChange) > 0.1 && Math.abs(xChange) < Math.abs(zChange)) {
         if (zChange > 0) {
           newInstance.addInput(PlayerMoveDirection.DOWN);
           this.player.dimension.runCommand(`title "${this.player.name}" title hidejoystick3`);
@@ -1523,12 +1631,14 @@ class Game {
           this.wasMovePressed = true;
         }
       }
+      if (this.wasMovePressed) {
+        this.player.teleport(this.movementPos, { keepVelocity: false, rotation: { x: 0, y: 180 } });
+      }
     }
-    this.player.teleport(this.movementPos, { keepVelocity: false, rotation: { x: 0, y: 180 } });
     if (this.shouldRunMoveTimer) {
       system.runTimeout(() => {
         this.updateMove(newInstance, instanceId);
-      }, 5);
+      }, 1);
     }
   }
   playLevels() {
@@ -1536,16 +1646,15 @@ class Game {
     let newInstance = new GameInstance();
     let instanceId = activeGameInstances.push(newInstance);
     this.player.teleport(this.movementPos, { keepVelocity: false, rotation: { x: 0, y: 180 } });
-    this.player.dimension.runCommand(`hud "${this.player.name}" hide`);
     system.runTimeout(() => {
       this.player.dimension.runCommand(`title "${this.player.name}" title hidejoystick1`);
     }, 1);
     system.runTimeout(() => {
       this.player.dimension.runCommand(`title "${this.player.name}" title hidehome1`);
-    }, 2);
+    }, 3);
     system.runTimeout(() => {
       this.player.dimension.runCommand(`title "${this.player.name}" title hidereset1`);
-    }, 3);
+    }, 5);
     system.runTimeout(() => {
       this.updateMove(newInstance, instanceId);
     }, 1);
@@ -1561,21 +1670,20 @@ class Game {
           this.player.dimension.runCommand(`title "${this.player.name}" title hidejoystick`);
           this.player.dimension.runCommand(`camera "${this.player.name}" clear`);
           this.player.inputPermissions.cameraEnabled = true;
-          this.player.dimension.runCommand(`hud "${this.player.name}" reset`);
           this.player.dimension.runCommand(`effect "${this.player.name}" clear`);
           this.player.teleport(this.tpBackPos, { keepVelocity: false, rotation: { x: 0, y: 180 } });
         }, 9);
         system.runTimeout(() => {
           this.player.dimension.runCommand(`title "${this.player.name}" title hidehome`);
-        }, 10);
+        }, 11);
         system.runTimeout(() => {
           this.player.dimension.runCommand(`title "${this.player.name}" title hidereset`);
-        }, 11);
+        }, 13);
         system.runTimeout(() => {
           if (!isStop) {
             this.player.dimension.runCommand(`title "${this.player.name}" title §1§kaaa§r§6You Won!§r§1§kaaa`);
           }
-        }, 12);
+        }, 15);
       }
       this.currId++;
     };
@@ -1776,7 +1884,7 @@ function changePage(entity, page, arrowType) {
           return;
         }
       } else if (entity.typeId == "wan:theme_selector") {
-        if (page == 1) {
+        if (page == themeList.length - 1) {
           return;
         }
       }

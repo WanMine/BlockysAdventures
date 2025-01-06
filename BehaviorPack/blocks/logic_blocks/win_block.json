@@ -18,7 +18,7 @@
       "minecraft:light_emission": 15,
       "minecraft:material_instances": {
         "*": {
-          "texture": "win_block",
+          "texture": "edit_win_block",
           "render_method": "alpha_test",
           "face_dimming": false,
           "ambient_occlusion": false

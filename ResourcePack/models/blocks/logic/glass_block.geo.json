@@ -1,0 +1,35 @@
+{
+	"format_version": "1.19.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.glass_block_u",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "block",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-7, 12, -7],
+							"size": [14, 4, 14],
+							"uv": {
+								"north": {"uv": [1, 0], "uv_size": [14, 4]},
+								"east": {"uv": [1, 0], "uv_size": [14, 4]},
+								"south": {"uv": [1, 0], "uv_size": [14, 4]},
+								"west": {"uv": [1, 0], "uv_size": [14, 4]},
+								"up": {"uv": [17, 1], "uv_size": [14, 14]},
+								"down": {"uv": [17, 15], "uv_size": [14, -14]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

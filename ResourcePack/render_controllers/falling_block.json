@@ -14,6 +14,12 @@
             "Texture.theme1_normal2",
             "Texture.theme2_normal1",
             "Texture.theme2_normal2",
+            "Texture.theme3_normal1",
+            "Texture.theme3_normal2",
+            "Texture.theme4_normal1",
+            "Texture.theme4_normal2",
+            "Texture.theme5_normal1",
+            "Texture.theme5_normal2",
             "Texture.glass_block",
             "Texture.redirect_up",
             "Texture.redirect_down",
@@ -51,7 +57,13 @@
             "Texture.theme1_wall1",
             "Texture.theme1_wall2",
             "Texture.theme2_wall1",
-            "Texture.theme2_wall2"
+            "Texture.theme2_wall2",
+            "Texture.theme3_wall1",
+            "Texture.theme3_wall2",
+            "Texture.theme4_wall1",
+            "Texture.theme4_wall2",
+            "Texture.theme5_wall1",
+            "Texture.theme5_wall2"
           ]
         }
       },

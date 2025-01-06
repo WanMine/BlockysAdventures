@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "wan:button_rotate",
+        "materials": {
+          "default": "entity_alphablend"
+        },
+        "textures": {
+          "default": "textures/entity/editor/button_rotate"
+        },
+        "geometry": {
+          "default": "geometry.button_rotate"
+        },
+        "animations": {
+          "idle0": "animation.button_rotate.idle_0",
+          "idle": "animation.button_rotate.idle_rotate"
+        },
+        "scripts": {
+          "animate": [
+            "idle", "idle0"
+          ]
+        },
+        "render_controllers": [
+          "controller.render.default"
+        ]
+      }
+    }
+  }
+  

@@ -126,22 +126,31 @@
             },
             {
               "page1": "q.property('wan:page') == 1"
+            },
+            {
+              "page2": "q.property('wan:page') == 2"
+            },
+            {
+              "page3": "q.property('wan:page') == 3"
+            },
+            {
+              "page4": "q.property('wan:page') == 4"
             }
           ]
         },
         "page0": {
           "animations": [
-            "page_1"
+            "page1"
           ],
           "transitions": [
             {
-              "next": "q.property('wan:page') == 1"
+              "0to1": "q.property('wan:page') == 1"
             }
           ]
         },
-        "next": {
+        "0to1": {
           "animations": [
-            "next"
+            "0to1"
           ],
           "transitions": [
             {
@@ -149,9 +158,9 @@
             }
           ]
         },
-        "previous": {
+        "1to0": {
           "animations": [
-            "previous"
+            "1to0"
           ],
           "transitions": [
             {
@@ -161,11 +170,110 @@
         },
         "page1": {
           "animations": [
-            "page_2"
+            "page2"
           ],
           "transitions": [
             {
-              "previous": "q.property('wan:page') == 0"
+              "1to0": "q.property('wan:page') == 0"
+            },
+            {
+              "1to2": "q.property('wan:page') == 2"
+            }
+          ]
+        },
+        "1to2": {
+          "animations": [
+            "1to2"
+          ],
+          "transitions": [
+            {
+              "page2": "q.all_animations_finished"
+            }
+          ]
+        },
+        "2to1": {
+          "animations": [
+            "2to1"
+          ],
+          "transitions": [
+            {
+              "page1": "q.all_animations_finished"
+            }
+          ]
+        },
+        "page2": {
+          "animations": [
+            "page3"
+          ],
+          "transitions": [
+            {
+              "2to1": "q.property('wan:page') == 1"
+            },
+            {
+              "2to3": "q.property('wan:page') == 3"
+            }
+          ]
+        },
+        "2to3": {
+          "animations": [
+            "2to3"
+          ],
+          "transitions": [
+            {
+              "page3": "q.all_animations_finished"
+            }
+          ]
+        },
+        "3to2": {
+          "animations": [
+            "3to2"
+          ],
+          "transitions": [
+            {
+              "page2": "q.all_animations_finished"
+            }
+          ]
+        },
+        "page3": {
+          "animations": [
+            "page4"
+          ],
+          "transitions": [
+            {
+              "3to2": "q.property('wan:page') == 2"
+            },
+            {
+              "3to4": "q.property('wan:page') == 4"
+            }
+          ]
+        },
+        "3to4": {
+          "animations": [
+            "3to4"
+          ],
+          "transitions": [
+            {
+              "page4": "q.all_animations_finished"
+            }
+          ]
+        },
+        "4to3": {
+          "animations": [
+            "4to3"
+          ],
+          "transitions": [
+            {
+              "page3": "q.all_animations_finished"
+            }
+          ]
+        },
+        "page4": {
+          "animations": [
+            "page5"
+          ],
+          "transitions": [
+            {
+              "4to3": "q.property('wan:page') == 3"
             }
           ]
         }

@@ -1,0 +1,66 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.ufo",
+				"texture_width": 256,
+				"texture_height": 256,
+				"visible_bounds_width": 7,
+				"visible_bounds_height": 10.5,
+				"visible_bounds_offset": [0, 4.75, 0]
+			},
+			"bones": [
+				{
+					"name": "ufo",
+					"pivot": [0, 111.8, 0],
+					"cubes": [
+						{
+							"origin": [-13, 124.8, -13],
+							"size": [26, 16, 26],
+							"uv": {
+								"north": {"uv": [96, 78], "uv_size": [26, 16]},
+								"east": {"uv": [96, 94], "uv_size": [26, 16]},
+								"south": {"uv": [96, 110], "uv_size": [26, 16]},
+								"west": {"uv": [42, 112], "uv_size": [26, 16]},
+								"up": {"uv": [96, 0], "uv_size": [26, 26]},
+								"down": {"uv": [16, 122], "uv_size": [26, -26]}
+							}
+						},
+						{
+							"origin": [-24, 111.8, -24],
+							"size": [48, 13, 48],
+							"uv": {
+								"north": {"uv": [96, 26], "uv_size": [48, 13]},
+								"east": {"uv": [96, 39], "uv_size": [48, 13]},
+								"south": {"uv": [96, 52], "uv_size": [48, 13]},
+								"west": {"uv": [96, 65], "uv_size": [48, 13]},
+								"up": {"uv": [0, 0], "uv_size": [48, 48]},
+								"down": {"uv": [0, 96], "uv_size": [48, -48]}
+							}
+						}
+					]
+				},
+				{
+					"name": "ray",
+					"parent": "ufo",
+					"pivot": [0, 11, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 112, 16],
+							"uv": {
+								"north": {"uv": [48, 0], "uv_size": [16, 112]},
+								"east": {"uv": [64, 0], "uv_size": [16, 112]},
+								"south": {"uv": [80, 0], "uv_size": [16, 112]},
+								"west": {"uv": [0, 96], "uv_size": [16, 112]},
+								"up": {"uv": [68, 112], "uv_size": [16, 16]},
+								"down": {"uv": [122, 16], "uv_size": [16, -16]}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

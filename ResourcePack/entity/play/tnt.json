@@ -1,0 +1,29 @@
+{
+  "format_version": "1.18.10",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wan:tnt",
+      "materials": {
+        "default": "entity_emissive_alpha",
+        "outline": "entity_emissive_alpha_one_sided"
+      },
+      "textures": {
+        "default": "textures/blocks/logic/tnt"
+      },
+      "geometry": {
+        "default": "geometry.tnt_u"
+      },
+      "render_controllers": ["controller.render.default"],
+      "particle_effects": {
+        "explosion": "wan:explosion"
+      },
+      "animations": {
+        "idle": "animation.tnt.idle",
+        "explode": "animation.tnt.explode"
+      },
+      "scripts": {
+        "animate": ["idle"]
+      }
+    }
+  }
+}

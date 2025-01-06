@@ -17,7 +17,7 @@
       "minecraft:destructible_by_explosion": false,
       "minecraft:material_instances": {
         "*": {
-          "texture": "wall_block",
+          "texture": "edit_wall_block",
           "render_method": "alpha_test",
           "face_dimming": false,
           "ambient_occlusion": false

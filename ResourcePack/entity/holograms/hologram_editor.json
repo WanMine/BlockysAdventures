@@ -1,0 +1,29 @@
+{
+  "format_version": "1.18.10",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wan:hologram_editor",
+      "materials": {
+        "default": "entity_alphablend",
+        "emissive": "entity_emissive_alpha_one_sided"
+      },
+      "textures": {
+        "default": "textures/entity/holograms/hologram_editor"
+      },
+      "geometry": {
+        "default": "geometry.hologram"
+      },
+      "render_controllers": [
+        "controller.render.hologram"
+      ],
+      "animations": {
+        "idle": "animation.hologram.idle"
+      },
+      "scripts": {
+        "animate": [
+          "idle"
+        ]
+      }
+    }
+  }
+}

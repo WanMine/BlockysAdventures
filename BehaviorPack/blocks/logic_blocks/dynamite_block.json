@@ -18,7 +18,7 @@
       "minecraft:light_emission": 15,
       "minecraft:material_instances": {
         "*": {
-          "texture": "dynamite_block",
+          "texture": "edit_dynamite_block",
           "render_method": "alpha_test",
           "face_dimming": false,
           "ambient_occlusion": false
